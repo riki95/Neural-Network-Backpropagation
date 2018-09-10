@@ -6,6 +6,12 @@ This is an implementation of a Neural Network with the Backpropagation Algorithm
 
 ## Getting Started
 
+To download my repo:
+
+```
+git clone https://github.com/riki95/Neural-Network-Backpropagation-ML-Project
+```
+
 The program was written and executed with [Matlab](https://it.mathworks.com/downloads/).
 
 The dataset used are Monks for Classification and Wines Quality for Regression, but you can modify the launch files to use different datasets.
