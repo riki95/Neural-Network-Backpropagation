@@ -26,7 +26,6 @@ output_dim = 1;
 iterations = 400;
 bias = 1;
 threshold_grad = 1e-8;
-mb_size = 32; %used only with no validation. Otherwise we initialize it in kfold-holdout
 shuffle = 1;
 
 validation = 1;
@@ -35,6 +34,8 @@ assessment = 0;
 
 if ~validation
     
+    
+    mb_size = 32; %used only with no validation. Otherwise we initialize it in kfold-holdout
     tr_perc = 0.6;
     test_perc = 0.2;
     
