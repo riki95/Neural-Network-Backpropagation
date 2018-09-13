@@ -35,7 +35,6 @@ function [nn, train_acc, test_acc, train_err, test_err, iter, best_var] = holdOu
     end
     
     training_iterations = 5;
-    %validation_accuracy = zeros(4, 4, 4, 4);
     
     best_err = inf;
     single_errors = zeros(1,training_iterations);

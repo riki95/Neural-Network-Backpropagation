@@ -9,7 +9,6 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
 
 % it returns trained (best) neural network, and the values of statistics on train, validation and test set
 
-
     [X, y, ~, ~, x_test, y_test] = train_validation_test_split(X, y, tr_perc, test_perc, shuffle);
     fold_dim = floor(size(X, 1)/fold);
     
@@ -84,7 +83,6 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
         train_acc = NaN;
         best_err = mean_val_fold;
         best_var = variance_fold;
-        %[train_acc, ~, train_err, ~, iter] = nn.fit(X, y, x_test, y_test);
         train_err = mean_tr_fold;
         test_err = NaN;
     end

@@ -43,10 +43,8 @@ classdef NeuralNetwork < handle
         left_range = -0.7;
         right_range = 0.7;
         
-     
-        
         % Neural Network used for regression (1) or for classification (0)
-        regression = 0;
+        regression = 0; % The value is useless because is then assigned from the Run class basing on the dataset
 
         % random seed
         seed = 1234;
