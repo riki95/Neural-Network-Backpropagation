@@ -65,7 +65,6 @@ else
     % tr_perc and test_perc must sum to 1 only for K-fold CV
     tr_perc = 0.8;
     test_perc = 0.2;
-    shuffle = 1;
     fold = 5;
     [nn,train_acc, test_acc, train_err, test_err, best_err, iter, best_var] = KFold(assessment,use,X,y,fold,input_dim,output_dim,iterations,bias,threshold_grad,tr_perc,test_perc,shuffle);
     fprintf('Test accuracy: %f\n', test_acc(end));
