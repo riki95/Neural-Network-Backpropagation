@@ -21,18 +21,10 @@ function [nn, train_acc, test_acc, train_err, test_err, iter, best_var] = holdOu
     mb_size = size(x_train,1);
     
     % values for the grid search
-    random = 0;
-    if random == 0
-        hidden_dim = {[30 30]};
-        eta = linspace(0.01, 0.6, 2);
-        lambda = [1e-5 1e-4];
-        alpha = linspace(0.6, 0.9, 3);
-    else
-        hidden_dim = {[round(10 + rand(1,1)*20) round(10 + rand(1,1)*20)]};
-        eta = 0.01 + rand(1,4)*(0.8-0.01);
-        lambda = [0 rand(1,4)*1e-4];
-        alpha = 0.5 + rand(1,4)*0.5;
-    end
+    hidden_dim = {[30 30]};
+    eta = linspace(0.01, 0.6, 2);
+    lambda = [1e-5 1e-4];
+    alpha = linspace(0.6, 0.9, 3);
     
     training_iterations = 5;
     

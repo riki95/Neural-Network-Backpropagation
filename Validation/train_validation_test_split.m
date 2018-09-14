@@ -19,7 +19,7 @@ function [xTraining, yTraining, xValidation, yValidation, xTest, yTest] = train_
     xTest = X(tr_end+1:test_end,:);
     yTest = y(tr_end+1:test_end,:);
     
-    if tr_perc + test_perc == 1
+    if tr_perc + test_perc == 1 % This is KFold case
         xValidation = [];
         yValidation = [];
     else
