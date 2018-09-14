@@ -16,7 +16,11 @@ data = csvread('Data/Classification/monks-1.csv'); %Change number to 1-2-3 to in
 x = data(:,[2 3 4 5 6 7]);
 y = data(:,1); 
 
-X = zeros(size(x,1),sum(oneOfkConversion));
+%with size(x,1) I get the size of the first dimension of x so essentially I
+%get how many rows x has. with sum(oneofkconversion) instead I get number
+%17 which is the number of dimensions for Monks. So I create a matrix of
+%all zeros.
+X = zeros(size(x,1),sum(oneOfkConversion)); 
 for i=1:size(x,1)
     X(i,:) = oneOfk(x(i,:), oneOfkConversion);
 end
@@ -33,9 +37,7 @@ use = 0; % 1 = regression, 0 = classification
 assessment = 0;
 
 if ~validation
-    
-    
-    mb_size = 32; %used only with no validation. Otherwise we initialize it in kfold-holdout
+    mb_size = 32;
     tr_perc = 0.6;
     test_perc = 0.2;
     
@@ -66,7 +68,7 @@ else
     % tr_perc and test_perc must sum to 1 only for K-fold CV
     tr_perc = 0.8;
     test_perc = 0.2;
-    fold = 5;
+    fold = 5; % here we can set the K number of fold
     [nn,train_acc, test_acc, train_err, test_err, best_err, iter, best_var] = KFold(assessment,use,X,y,fold,input_dim,output_dim,iterations,bias,threshold_grad,tr_perc,test_perc,shuffle);
     fprintf('Test accuracy: %f\n', test_acc(end));
     fprintf('Test error: %f\n', test_err(end));

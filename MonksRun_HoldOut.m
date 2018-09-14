@@ -33,8 +33,6 @@ use = 0; % 1 = regression, 0 = classification
 assessment = 0;
 
 if ~validation
-    
-    
     mb_size = 32; %used only with no validation. Otherwise we initialize it in kfold-holdout
     tr_perc = 0.6;
     test_perc = 0.2;
