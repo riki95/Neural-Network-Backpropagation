@@ -38,4 +38,4 @@ Inside the launch files you can also set some parameters, for example "Validatio
 
 ## Authors
 
-* **Riccardo Basso** - *S4071408* - Università degli studi di Genova
+* **Riccardo Basso** - Università degli studi di Genova - *Machine Learning 2017-2018*
