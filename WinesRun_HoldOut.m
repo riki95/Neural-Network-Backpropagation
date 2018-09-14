@@ -1,5 +1,8 @@
-addpath(genpath(pwd))
+%Here we have a Regression dataset in which the y column is the last one
+%and the first 11 are dimensions. We do not have to recompute the data like
+%we did in Monks, we just pass it to the NN as it is.
 
+addpath(genpath(pwd))
 
 %data = dlmread('Data/Regression/winequality-red-ok.csv',';');
 data = dlmread('Data/Regression/winequality-white.csv',';');
@@ -48,7 +51,6 @@ if validation == 0
     fprintf("Test error: %d\n", test_error);
     
 else
-    % tr_perc and test_perc must sum to 1 only for K-fold CV
     tr_perc = 0.6;
     test_perc = 0.2;
     [nn,~, ~, train_err, test_err, iter, var] = holdOut(use,X,y,input_dim,output_dim,iterations,bias,threshold_grad, tr_perc,test_perc,shuffle);    

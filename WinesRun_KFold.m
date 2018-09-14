@@ -1,5 +1,8 @@
-addpath(genpath(pwd))
+%Here we have a Regression dataset in which the y column is the last one
+%and the first 11 are dimensions. We do not have to recompute the data like
+%we did in Monks, we just pass it to the NN as it is.
 
+addpath(genpath(pwd))
 
 %data = dlmread('Data/Regression/winequality-red-ok.csv',';');
 data = dlmread('Data/Regression/winequality-white.csv',';');

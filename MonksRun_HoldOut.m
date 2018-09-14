@@ -61,7 +61,6 @@ if ~validation
     fprintf('Test Accuracy: %f\n', accuracy);
     
 else
-    % tr_perc and test_perc must sum to 1 only for K-fold CV
     tr_perc = 0.6;
     test_perc = 0.2;
     [nn,train_acc, test_acc, train_err, test_err, iter] = holdOut(use,X,y,input_dim,output_dim,iterations,bias,threshold_grad,tr_perc,test_perc,shuffle);
