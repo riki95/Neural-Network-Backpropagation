@@ -52,7 +52,7 @@ function [nn, train_acc, test_acc, train_err, test_err, iter, best_var] = holdOu
                         [~, ~, val_err] = nn.test(x_val,y_val);
                         single_errors(1,i) = val_err;
                     end
-                    fprintf("Iterazione %d/%d completata.\n",iter,tot_iter);
+                    fprintf("Iteration %d/%d completed.\n",iter,tot_iter);
                     iter = iter + 1;
                     errors = mean(single_errors);
                     

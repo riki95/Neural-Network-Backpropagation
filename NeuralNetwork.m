@@ -274,8 +274,9 @@ classdef NeuralNetwork < handle
             % column cell array of weight matrixes
             % NOTE: bias units have no input connections
             
-            %initialize input layer weights
-            nn.weights{1,1} = (nn.right_range - nn.left_range) * rand(nn.hidden_dim(1,1),nn.inp_dim+nn.bias) + nn.left_range;	%pesi random tra -0.7 e 0.7 per il primo hl
+            %initialize input layer weights with random numbers between
+            %-0,7 and 0,7
+            nn.weights{1,1} = (nn.right_range - nn.left_range) * rand(nn.hidden_dim(1,1),nn.inp_dim+nn.bias) + nn.left_range;
             %initialize hidden layer weights (if > 1)
             if nn.num_hidden > 1
               for i=2:nn.num_hidden
@@ -290,7 +291,7 @@ classdef NeuralNetwork < handle
                 nn.momentum{i,1} = zeros(size(nn.weights{i,1}));
             end            
       
-            
+            %initialize each arc gradient
             for i=1:nn.num_hidden+1
                 nn.grads{i,1} = zeros(size(nn.weights{i,1}));
             end
@@ -308,6 +309,7 @@ classdef NeuralNetwork < handle
                     end
                 end             
                 
+                %Now I increase iteration number for next cycle
                 iterations = iterations + 1;
                 
                 % random permutation of data
@@ -343,7 +345,7 @@ classdef NeuralNetwork < handle
                         out0(size(out0,1)+1,:) = 1;
                     end
 
-                    % accuracy summing
+                    % accuracy summing + FP Call
                     [~,corr,err] = nn.FP(out0,target);
                     if ~nn.regression
                         tot_corr = tot_corr + corr;
@@ -359,7 +361,6 @@ classdef NeuralNetwork < handle
                         nn.grads{i,1} = nn.grads{i,1} ./ nn.mb_size;
                     end
 
-                   
                     % standard delta rule
                     for m=1:nn.num_hidden+1
                         regularizer = nn.lambda .* nn.weights{m,1};
@@ -448,6 +449,7 @@ classdef NeuralNetwork < handle
                 end
                 errors = errs / num_test;
             else
+                % Forward Propagation
                 [output,~,~] = nn.FP(out0);  
                 accuracy = NaN;
                 errors = NaN;

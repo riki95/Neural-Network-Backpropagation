@@ -47,13 +47,10 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
                             single_tr_errors(1,it) = train_err(end);
                         end
                         index = index + fold_dim;
-                        %Now I calculate the mean for validation and
-                        %training error above my training iteration for
-                        %this single Fold
                         fold_val_error(1,i) = mean(single_val_errors);
                         fold_tr_error(1,i) = mean(single_tr_errors);
                     end
-                    fprintf("Iteration %d/%d completed.\n",iter,tot_iter);
+                    fprintf("Iterazione %d/%d completata.\n",iter,tot_iter);
                     iter = iter + 1;
                     mean_val_fold = mean(fold_val_error);
                     mean_tr_fold = mean(fold_tr_error);
@@ -61,8 +58,6 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
                     % calculate the variance of the current model
                     variance_fold = var(fold_val_error);
                     
-                    %If this is the best value achieved, update the best
-                    %values so that we print and plot it later on
                     if mean_val_fold < best_err
                         best_err = mean_val_fold;
                         best_d = d;
@@ -75,7 +70,6 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
             end
         end
     end
-    
     % re-train on training set + validation set
     nn = NeuralNetwork(use,inp_dim, out_dim, hidden_dim{best_d,:}, iterations, eta(best_e), lambda(best_l), alpha(best_a), bias, threshold_grad, mb_size);
     if ~assessment
