@@ -17,7 +17,7 @@ X = scaleInput(X,[min_scale,max_scale]);
 
 input_dim = 11;
 output_dim = 1;
-iterations = 50;
+iterations = 100;
 bias = 1;
 threshold_grad = 1e-2;
 shuffle = 1;
