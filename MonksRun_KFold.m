@@ -27,7 +27,7 @@ end
 
 input_dim = 17; % 3 + 3 + 2 + 3 + 4 + 2
 output_dim = 1; 
-iterations = 400;
+iterations = 100;
 bias = 1;
 threshold_grad = 1e-8;
 shuffle = 1;

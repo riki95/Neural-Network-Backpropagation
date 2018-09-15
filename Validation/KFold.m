@@ -8,7 +8,8 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
 % it returns trained (best) neural network, and the values of statistics on train, validation and test set
 
     [X, y, ~, ~, x_test, y_test] = train_validation_test_split(X, y, tr_perc, test_perc, shuffle);
-       
+    fold_dim = floor(size(X, 1)/fold);
+    
     hidden_dim = {[30 30]};
     eta = [0.01 0.1 0.2];
     lambda = [1e-4 1e-3];
@@ -18,7 +19,7 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
     
     %Mini_Batch size is equal to the length of the rows divided by number
     %of fold
-    mb_size = floor(size(X, 1)/fold);
+    mb_size = fold_dim;
     %mb_size = 32;%good for monks
     best_err = inf;
     single_val_errors = zeros(1, training_iterations);
