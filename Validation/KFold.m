@@ -8,7 +8,6 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
 % it returns trained (best) neural network, and the values of statistics on train, validation and test set
 
     [X, y, ~, ~, x_test, y_test] = train_validation_test_split(X, y, tr_perc, test_perc, shuffle);
-    fold_dim = floor(size(X, 1)/fold);
     
     hidden_dim = {[30 30]};
     eta = [0.01 0.1 0.2];
@@ -19,7 +18,7 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
     
     %Mini_Batch size is equal to the length of the rows divided by number
     %of fold
-    mb_size = fold_dim;
+    mb_size = floor(size(X, 1)/fold);
     %mb_size = 32;%good for monks
     best_err = inf;
     single_val_errors = zeros(1, training_iterations);
@@ -42,12 +41,12 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
                     for i = 1 : fold
                         for it = 1 : training_iterations
                             nn = NeuralNetwork(use,inp_dim, out_dim, hidden_dim{d,:}, iterations, eta(e), lambda(l), alpha(a), bias, threshold_grad, mb_size);
-                            [~,~,train_err,~,~] = nn.fit([X(1 : index , :); X(index + fold_dim + 1 : end, :)], [y(1 : index , :); y(index + fold_dim + 1 : end, :)]);
-                            [~, ~, val_err] = nn.test(X(index + 1 : index + fold_dim, :), y(index + 1 : index + fold_dim, :));
+                            [~,~,train_err,~,~] = nn.fit([X(1 : index , :); X(index + mb_size + 1 : end, :)], [y(1 : index , :); y(index + mb_size + 1 : end, :)]);
+                            [~, ~, val_err] = nn.test(X(index + 1 : index + mb_size, :), y(index + 1 : index + mb_size, :));
                             single_val_errors(1,it) = val_err;
                             single_tr_errors(1,it) = train_err(end);
                         end
-                        index = index + fold_dim;
+                        index = index + mb_size;
                         %Now I calculate the mean for validation and
                         %training error above my training iteration for
                         %this single Fold
