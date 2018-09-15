@@ -58,7 +58,6 @@ else
     [nn,train_acc, test_acc, train_err, test_err, best_err, iter, var] = KFold(assessment,use,X,y,fold,input_dim,output_dim,iterations,bias,threshold_grad,tr_perc,test_perc,shuffle);    
     fprintf("Training error: %d\n", train_err(end));
     fprintf("Test error: %d\n", test_err(end));
-    fprintf("Variance: %d\n", var);
     fprintf("Eta: %f\nLambda: %f\nAlpha: %f\nHidden dim: %f\n",nn.eta,nn.lambda,nn.alpha, nn.hidden_dim);
 end
 

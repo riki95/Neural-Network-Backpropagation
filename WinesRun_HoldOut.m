@@ -56,7 +56,6 @@ else
     [nn,~, ~, train_err, test_err, iter, var] = holdOut(use,X,y,input_dim,output_dim,iterations,bias,threshold_grad, tr_perc,test_perc,shuffle);    
     fprintf("Training error: %d\n", train_err(end));
     fprintf("Test error: %d\n", test_err(end));
-    fprintf("Variance: %d\n", var);
     fprintf("Eta: %f\nLambda: %f\nAlpha: %f\nHidden dim: %f\n",nn.eta,nn.lambda,nn.alpha, nn.hidden_dim);
 end
 

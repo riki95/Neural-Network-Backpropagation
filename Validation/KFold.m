@@ -14,7 +14,7 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
     lambda = [1e-4 1e-3];
     alpha = [0.5 0.7 0.9];
 
-    training_iterations = 2;
+    training_iterations = 5;
     
     %Mini_Batch size is equal to the length of the rows divided by number
     %of fold
