@@ -26,10 +26,10 @@ classdef NeuralNetwork < handle
         outs = cell(1); % out for each unit
         
         % activation functions
-        haf = @htanh; % activation function
-        dhaf = @dhtanh; % derivative of haf
-        oaf = @oaflogistic; % output activation function
-        doaf = @doaflogistic; % derivative of oaf
+        haf = @hrelu; % activation function
+        dhaf = @dhrelu; % derivative of haf
+        oaf = @softplus; % output activation function
+        doaf = @dsoftplus; % derivative of oaf
         errorfunct = @MSE; % error function 
         derrorfunct = @dMSE; % derivative of errorfunct
         
