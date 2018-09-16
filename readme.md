@@ -36,6 +36,16 @@ Just open the project with Matlab and run the "LaunchMonks" or "LaunchWines" fil
 
 Inside the launch files you can also set some parameters, for example "Validation" if you want to use it or not.
 
+You can change hyperparameters like Hidden Layers or Regularization and Momentum inside the NeuralNetwork file.
+
+What is produced at the end of the learning is something like this for Classification:
+
+![Monks Classification](https://i.imgur.com/Q06ZTkh.png)
+
+And this for Regression:
+
+![Wines Regression](https://i.imgur.com/f6gJt1D.png)
+
 ## Authors
 
 * **Riccardo Basso** - Università degli studi di Genova - *Machine Learning 2017-2018*
