@@ -29,7 +29,7 @@ classdef NeuralNetwork < handle
         haf = @hrelu; % activation function
         dhaf = @dhrelu; % derivative of haf
         oaf = @softplus; % output activation function
-        doaf = @dsoftplus; % derivative of oaf
+        doaf = @softmax; % derivative of oaf
         errorfunct = @MSE; % error function 
         derrorfunct = @dMSE; % derivative of errorfunct
         
