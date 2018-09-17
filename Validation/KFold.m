@@ -26,11 +26,13 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
     fold_val_error = zeros(1,fold);
     fold_tr_error = zeros(1,fold);
     
+    %These are the best values that are updated if we're in the best case
     best_d = 1; % hidden dimension
     best_e = 1; % eta
     best_l = 1; % lambda 
     best_a = 1; % alpha
     best_var = 1;
+    
     tot_iter = size(hidden_dim, 1) *  size(eta, 2) * size(alpha, 2) * size(lambda,2);
     iter = 1;
     for d = 1 : size(hidden_dim, 1)
