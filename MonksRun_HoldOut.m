@@ -12,7 +12,7 @@ addpath(genpath(pwd))
 oneOfkConversion = [3 3 2 3 4 2];
 
 % prepare training data
-data = csvread('Data/Classification/monks-1.csv'); %Change number to 1-2-3 to increase difficulty
+data = csvread('Data/Classification/monks-3.csv'); %Change number to 1-2-3 to increase difficulty
 x = data(:,[2 3 4 5 6 7]);
 y = data(:,1); 
 

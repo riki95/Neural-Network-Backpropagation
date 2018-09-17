@@ -9,10 +9,11 @@ function [nn, train_acc, test_acc, train_err, test_err, best_err, iter, best_var
 
     [X, y, ~, ~, x_test, y_test] = train_validation_test_split(X, y, tr_perc, test_perc, shuffle);
     
-    hidden_dim = {[30 30]};
-    eta = [0.01 0.1 0.2];
-    lambda = [1e-4 1e-3];
-    alpha = [0.5 0.7 0.9];
+    %Grid Search Hyperparameters
+    hidden_dim = {[30 30]}; % Neurons per Hidden Layer
+    eta = [0.01 0.1 0.2]; % Learning Rate
+    lambda = [1e-4 1e-3]; % Regularization
+    alpha = [0.5 0.7 0.9]; % Momentum
 
     training_iterations = 5;
     

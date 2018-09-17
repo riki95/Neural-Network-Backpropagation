@@ -21,10 +21,10 @@ function [nn, train_acc, test_acc, train_err, test_err, iter, best_var] = holdOu
     mb_size = size(x_train,1);
     
     % values for the grid search
-    hidden_dim = {[30 30]};
-    eta = linspace(0.01, 0.6, 2);
-    lambda = [1e-5 1e-4];
-    alpha = linspace(0.6, 0.9, 3);
+    hidden_dim = {[30 30]}; % Neurons per Hidden Layer
+    eta = linspace(0.01, 0.6, 2); % Learning Rate
+    lambda = [1e-5 1e-4]; % Regularization
+    alpha = linspace(0.6, 0.9, 3); % Momentum
     
     training_iterations = 5;
     
