@@ -28,8 +28,8 @@ classdef NeuralNetwork < handle
         % activation functions
         haf = @htanh; % activation function
         dhaf = @dhtanh; % derivative of haf
-        oaf = @oaflogistic; % output activation function
-        doaf = @doaflogistic; % derivative of oaf
+        oaf = @oafsigmoid; % output activation function
+        doaf = @doafsigmoid; % derivative of oaf
         errorfunct = @MSE; % error function 
         derrorfunct = @dMSE; % derivative of errorfunct
         

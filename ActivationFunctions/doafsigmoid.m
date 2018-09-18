@@ -1,3 +1,3 @@
-function [v] = doaflogistic(x)
-v = oaflogistic(x) .* (1 - oaflogistic(x)); 
+function [v] = doafsigmoid(x)
+v = oafsigmoid(x) .* (1 - oafsigmoid(x)); 
 end
